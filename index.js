@@ -35,7 +35,7 @@ run().catch(console.dir);
 
 
 app.get('/', (req, res) => {
-    res.send("<h1>Hello from JOB BOX server</h1>")
+    res.send("<h1>Hello from JOB BOX server!</h1>")
 })
 app.listen(port, () => {
     console.log(`Listening to port ${port}`);
