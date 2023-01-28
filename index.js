@@ -23,11 +23,14 @@ async function run() {
             res.send(result)
         })
         //get specific user
-        app.get('/user/:email', async (req, res) => {
+        app.get('/user/:email', async (req, res, next) => {
             const email = req.params.email;
-            console.log(email);
             const result = await usersCollection.findOne({ email: email })
-            res.send({ status: true, data: result })
+            if (result) {
+              return  res.send({ status: true, data: result })
+            }
+            res.send({ status: false })
+
         })
         //post a user from his/her registration
         app.post('/user', async (req, res) => {
